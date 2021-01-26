@@ -60,13 +60,13 @@ jobs:
             # Determine the repo and leave that unset to use the normal checkout behavior
             # of using the merge commit instead of HEAD
             case $GITHUB_REPOSITORY in
-              "apache/incubator-nuttx")
+              "MasayukiIshikawa/incubator-nuttx")
                 # OS
                 echo "Triggered by change in OS"
                 APPS_REF=$REF_NAME
                 ;;
 
-              "apache/incubator-nuttx-apps" )
+              "MasayukiIshikawa/incubator-nuttx-apps" )
                 # APPS
                 OS_REF=$REF_NAME
                 echo "Triggered by change in APPS"
@@ -85,7 +85,7 @@ jobs:
       - name: Checkout nuttx repo
         uses: actions/checkout@v2
         with:
-          repository: apache/incubator-nuttx
+          repository: MasayukiIshikawa/incubator-nuttx
           ref: ${{ steps.gittargets.outputs.os_ref }}
           path: sources/nuttx
           fetch-depth: 1
@@ -95,7 +95,7 @@ jobs:
       - name: Checkout apps repo
         uses: actions/checkout@v2
         with:
-          repository: apache/incubator-nuttx-apps
+          repository: MasayukiIshikawa/incubator-nuttx-apps
           ref: ${{ steps.gittargets.outputs.apps_ref }}
           path: sources/apps
           fetch-depth: 1
@@ -103,7 +103,7 @@ jobs:
       - name: Checkout testing repo
         uses: actions/checkout@v2
         with:
-          repository: apache/incubator-nuttx-testing
+          repository: MasayukiIshikawa/incubator-nuttx-testing
           ref: ${{ steps.gittargets.outputs.testing_ref }}
           path: sources/testing
           fetch-depth: 1
